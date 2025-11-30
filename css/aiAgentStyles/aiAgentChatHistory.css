@@ -1,0 +1,64 @@
+#aiAgentChatHistory {
+    position: fixed;
+    height: 100%;
+    padding: 2.22vh;
+    top: 0;
+    left: -40vh;
+    width: 30vh;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    border-top-left-radius: 1.332vh;
+    border-bottom-left-radius: 1.332vh;
+    background-color: #13161B;
+}
+
+#aiAgentChatHistory.open {
+    left: 0;
+}
+
+.chat-history-container {
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.332vh
+}
+
+.chat-history-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.444vh 0 0.444vh 0;
+}
+
+.chat-history-header-text {
+    color: #D0D0D1;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 1.776vh;
+    line-height: 2.664vh;
+}
+
+.chat-history-new-chat {
+    font-family: "Inter", sans-serif;
+    color: #A9ABAC;
+    font-weight: 500;
+    font-size: 1.554vh;
+    line-height: 2.664vh;
+}
+
+.new-chat-button {
+    height: 100%;
+    border-radius: 2.664vh;
+    gap: 0.888vh;
+    border-width: 0.222vh;
+    padding: 0.888vh 1.332vh;
+    background: #292C30;
+    border: #3F4246 solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.chat-close-icon {
+    cursor: pointer;
+} 
