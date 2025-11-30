@@ -1,0 +1,353 @@
+.ai-header-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.332vh;
+  padding: 2.22vh;
+  background-color: #292C30;
+  border-radius: 1.332vh;
+  height: 100%;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+/* === СТИЛИ ДЛЯ КАРТОЧКИ ЗАСТРОЙЩИКА === */
+.customer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2.666vh;
+  padding: 2.22vh 1.332vh 2.22vh 1.332vh;
+  background-color: #13161B;
+  border: 0.222vh solid transparent;
+  border-radius: 1.332vh;
+  transition: all 0.3s;
+  cursor: pointer;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.customer-card.active {
+  border: 0.222vh solid #5FAFFF;
+}
+
+.customer-card:hover {
+  background-color: #1A1D22;
+  box-shadow: 0 0 1.332vh rgba(95, 175, 255, 0.3);
+}
+
+.customer-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 2.22vh;
+  color: #D0D0D1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.customer-name {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 1.554vh;
+  line-height: 2.664;
+  color: #D0D0D1;
+}
+
+/* === СТИЛИ ДЛЯ КАРТОЧКИ ПОДРЯДЧИКА === */
+.contractor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2.666vh;
+  padding: 2.22vh 1.332vh 2.22vh 1.332vh;
+  background-color: #13161B;
+  border: 0.222vh solid transparent;
+  border-radius: 1.332vh;
+  transition: all 0.3s;
+  cursor: pointer;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.contractor-card.active {
+  border: 0.222vh solid #5FAFFF;
+}
+
+.contractor-card:hover {
+  background-color: #1A1D22;
+  box-shadow: 0 0 1.332vh rgba(95, 175, 255, 0.3);
+}
+
+.contractor-icon {
+  width: 2.664vh;
+  height: 2.664vh;
+  border-radius: 0.444vh;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.contractor-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 2.22vh;
+  color: #D0D0D1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contractor-name {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 1.554vh;
+  line-height: 2.664;
+  color: #D0D0D1;
+}
+
+/* === СТИЛИ ДЛЯ КАРТОЧЕК AI МЕТОДОВ === */
+.ai-method-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1.8vh;
+  padding: 1.3vh;
+  background-color: #13161B;
+  border: 0.222vh solid transparent;
+  border-radius: 1.332vh;
+  transition: all 0.3s;
+  cursor: pointer;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.ai-method-card.active {
+  border: 0.222vh solid #5FAFFF;
+}
+
+.ai-method-card:hover {
+  background-color: #1A1D22;
+  box-shadow: 0 0 1.332vh rgba(95, 175, 255, 0.3);
+}
+
+.ai-method-icon {
+  width: 3.552vh;
+  height: 3.552vh;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ai-method-icon svg {
+  width: 3.552vh;
+  height: 3.552vh;
+}
+
+.ai-method-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 1.6vh;
+  line-height: 1.1;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ai-method-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.888vh;
+}
+
+.ai-method-title-blue {
+  color: #5FAFFF;
+}
+
+.ai-method-title-blue:hover {
+  color: #7FBFFF;
+}
+
+.ai-method-title-green {
+  color: #61C454;
+}
+
+.ai-method-title-green:hover {
+  color: #71D464;
+}
+
+.ai-method-title-orange {
+  color: #FFA500;
+}
+
+.ai-method-title-orange:hover {
+  color: #FFB520;
+}
+
+.ai-method-title-red {
+  color: #F54F5F;
+}
+
+.ai-method-title-red:hover {
+  color: #FF6F7F;
+}
+
+/* === СТИЛИ ДЛЯ DROPDOWN ВЫБОРА ЗАСТРОЩИКА === */
+.customer-dropdown {
+  position: fixed;
+  z-index: 10000;
+  display: none;
+  flex-direction: column;
+  gap: 1.332vh;
+  padding: 0.888vh 0.888vh 1.78vh;
+  background-color: #292C30;
+  border: 0.222vh solid #3F4246;
+  border-radius: 1.78vh;
+  box-shadow: 0.444vh 0 0.444vh 0 rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  width: 66.055vh;
+}
+
+.customer-dropdown.active {
+  display: flex;
+}
+
+.customer-dropdown-input {
+  display: flex;
+  align-items: center;
+  gap: 2.22vh;
+  padding: 0.888vh 1.332vh;
+  background-color: #3F4246;
+  border-radius: 0.666vh;
+  border: none;
+  outline: none;
+}
+
+.customer-dropdown-input input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 1.554vh;
+  line-height: 1.714;
+  color: #D0D0D1;
+  min-width: 0;
+}
+
+.customer-dropdown-input input::placeholder {
+  color: #A9ABAC;
+}
+
+.customer-dropdown-icon {
+  width: 2.664vh;
+  height: 2.664vh;
+  flex-shrink: 0;
+}
+
+.customer-dropdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.444vh;
+  max-height: 33.3vh;
+  overflow-y: auto;
+  scrollbar-color: #3F4246 #292C30;
+  scrollbar-width: thin;
+}
+
+.customer-dropdown-list::-webkit-scrollbar {
+  width: 0.444vh;
+}
+
+.customer-dropdown-list::-webkit-scrollbar-track {
+  background: #292C30;
+  border-radius: 0.222vh;
+}
+
+.customer-dropdown-list::-webkit-scrollbar-thumb {
+  background: #3F4246;
+  border-radius: 0.222vh;
+}
+
+.customer-dropdown-list::-webkit-scrollbar-thumb:hover {
+  background: #505357;
+}
+
+.customer-dropdown-item {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 1.554vh;
+  line-height: 1.714;
+  color: #D0D0D1;
+  height: 2.664vh;
+  display: flex;
+  align-items: center;
+  padding: 0.444vh 1.332vh;
+  cursor: pointer;
+}
+
+.customer-dropdown-item:hover {
+  background-color: rgba(95, 175, 255, 0.1);
+  border-radius: 0.666vh;
+}
+
+/* по умолчанию скрываем все блоки кроме первого */
+#aiGigaContainer,
+#aiResourcesContainer,
+#aiForecastContainer {
+  display: none;
+}
+
+
+/* ЧЕКБОКСЫ ДЛЯ ВЫБОРА ПОДРЯДЧИКА И ЗАСТРОЙЩИКА */
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 1.11vh;cursor: not-allowed;
+  pointer-events: none;
+}
+
+.custom-checkbox input {
+  display: none;
+  pointer-events: none;
+}
+
+.custom-checkbox .box {
+  width: 3.108vh;
+  height: 3.108vh;
+  border-radius: 0.666vh;
+  background: #292C30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* галочка */
+.custom-checkbox .checkmark {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+/* Карточка Подрядчика по умолчанию пока всегда активна */
+#aiContractorCard .custom-checkbox .checkmark {
+  opacity: 1;
+}
+
+.custom-checkbox input:checked + .box .checkmark { 
+  opacity: 1; 
+}
