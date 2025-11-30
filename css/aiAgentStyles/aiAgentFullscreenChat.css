@@ -1,0 +1,144 @@
+/* FULLSCREEN CHAT */
+#aiFullscreenChat {
+    position: absolute;
+    background: #13161B;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    z-index: 100;
+
+    padding: 2.22vh 2.22vh 0 2.22vh;
+    border-top-left-radius: 1.332vh;
+    border-top-right-radius: 1.332vh;
+    left: 2.22vh;
+    right: 2.22vh;
+    top: 2.22vh;
+
+    background: #292C30;
+    height: 100%;
+}
+
+.ai-agent-select-work.fullscreen {
+    cursor: unset;
+}
+
+#aiFullscreenChat.open {
+    transform: translateY(0%);
+    /* выезжает наверх */
+}
+
+.ai-agent-chat-container.fullscreen {
+    height: 100%;
+    padding: 2.22vh 2.22vh 3.553vh 2.22vh;
+    justify-content: space-between;
+}
+
+.ai-agent-close-fullscreen {
+    position: absolute;
+    top: 4.44vh;
+    right: 4.44vh;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.ai-agent-chat-input.fullscreen input {
+    font-size: 1.554vh;
+    line-height: 2.664vh;
+    text-align: start;
+}
+
+.ai-agent-chat-input.fullscreen {
+    position: relative;
+    width: 100%;
+    max-width: 88.8vh;
+    height: 9.768vh;
+    border-radius: 1.332vh;
+    border-width: 0.222vh;
+    padding: 0.888vh 2.22vh;
+    box-sizing: border-box;
+    background: #292C30CC;
+    border: 2px solid #3F4246;
+}
+
+.ai-agent-fullscreen-input {
+    display: flex;
+    flex-direction: column;
+    gap: 2.22vh;
+    padding: 0.888vh 2.22vh;
+    margin-bottom: 10vh;
+    width: 100%;
+    align-items: center;
+}
+
+.ai-bottom-panel-fullscreen {
+    display: flex;
+}
+
+.bottom-buttons.fullscreen {
+    bottom: 8.88vh;
+    left: 4.44vh;
+}
+
+/* СООБЩЕНИЯ */
+.ai-agent-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 1.332vh;
+    width: 100%;
+    max-width: 88.8vh;
+}
+
+.ai-agent-messages.off {
+    display: none;
+}
+
+.message {
+    color: #FFFFFF;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 1.776vh;
+    line-height: 2.664vh;
+    width: fit-content;
+    max-width: 80%;
+    border-radius: 1.776vh;
+    padding: 1.332vh 1.332vh 2.22vh 1.332vh;
+    box-sizing: border-box;
+}
+
+.message.left {
+    text-align: left;
+    background: #31404F;
+}
+
+.message.right {
+    text-align: right;
+    background: #314335;
+    align-self: self-end;
+}
+
+.chat-history-message-container {
+    height: 100%;
+    max-height: 15.54vh;
+    padding: 0.444vh 1.332vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-history-date {
+    padding: 0.444vh 1.332vh;
+    color: #5FAFFF;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 1.332vh;
+    line-height: 1.77vh;
+    vertical-align: middle;
+}
+
+.chat-history-message {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 1.776vh;
+    line-height: 2.664vh;
+    color: #A9ABAC;
+}
