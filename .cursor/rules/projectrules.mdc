@@ -1,0 +1,68 @@
+---
+alwaysApply: true
+---
+
+# === GENERAL PRINCIPLES ===
+
+- Write the minimum amount of code. No over-engineering.
+- Follow KISS, DRY, SRP, and Separation of Concerns.
+- Do not generate README.md or markdown files unless explicitly requested.
+- Do not create future-proof code or unused abstractions.
+
+# === PROJECT STRUCTURE ===
+
+- Flat, simple folder structure.
+- Each UI component = its own JS file + CSS file (BEM) + optional HTML template.
+- No files larger than ~400 lines. Split when possible.
+- No functions larger than ~60 lines. Max nesting depth = 3.
+
+# === HTML RULES ===
+
+- Allowed: div, span, semantic tags.
+- NOT allowed: <ul>, <li>, <button>.
+- Interactive elements use <div> with JS event binding (no inline handlers).
+- Do NOT use onclick="...". Always use addEventListener in JS.
+- Use <template> for aionent markup when needed.
+
+# === CSS RULES ===
+
+- No raw px (except borders/shadows).
+- All sizes must follow: 1px = 0.111vh (use calc() or JS helper).
+- Strict BEM: block, block\_\_element, block--modifier.
+- Optional prefix per component: cmp-.
+- No preprocessors (SCSS/LESS/PostCSS).
+- Create tokens file (vars.css) for spacing, colors, radii.
+
+# === JAVASCRIPT RULES ===
+
+- Pure JS modules. No frameworks.
+- Use classical OOP only if it reduces duplication.
+- Keep components small and isolated.
+- Use templates + cloneNode instead of large innerHTML.
+- Avoid innerHTML with dynamic user content unless sanitized.
+- Store global app state in a single module; avoid globals.
+- Event names: "component:event" (e.g., "card:open").
+
+# === PERFORMANCE ===
+
+- Cache DOM nodes when reused.
+- Throttle/debounce high-frequency events.
+- Avoid re-rendering whole blocks; update small parts.
+- Limit DOM nodes in lists (200–500 recommended).
+- Reuse SVG and Base64 icons; do not duplicate strings.
+
+# === LOGGING & ERRORS ===
+
+- No console.log in production. Use a simple logger module.
+- Always handle network/API errors with fallback behavior.
+
+# === FILE & CODE HYGIENE ===
+
+- Remove unused code, dead functions, commented-out blocks.
+- No boilerplate or placeholders unless explicitly needed.
+- Keep code self-explanatory; minimal comments only where necessary.
+
+# === SECURITY ===
+
+- No dynamic innerHTML with untrusted content.
+- Validate API responses before rendering.

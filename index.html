@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI – СТРОЙАГЕНТ</title>
+
+    <meta name="theme-color" content="#0e0808" />
+
+    <!-- Gridstack JS -->
+    <script src="https://cdn.jsdelivr.net/npm/gridstack@8.2.3/dist/gridstack-all.js"></script>
+    
+    <!-- Gridstack CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/gridstack@8.2.3/dist/gridstack.min.css"
+    />
+    
+    <!-- aiPage Modules -->
+    <script src="app/aiPage/aiPageCore.js"></script>
+
+    <!-- aiAgent Modules -->
+    <script src="app/aiPage/aiAgent/aiAgentCore.js"></script>
+
+     <!-- aiForecast Modules -->
+    <script src="app/aiPage/aiForecast/aiForecastCore.js"></script>
+
+    <!-- aiGiga Modules -->
+    <script src="app/aiPage/aiGiga/aiGigaCore.js"></script>
+
+    <!-- aiResources Modules -->
+    <script src="app/aiPage/aiResources/aiResourcesCore.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/aiPageStyles/ai-page-common.css" />
+    <link rel="stylesheet" href="css/aiAgentStyles/aiAgent.css" />
+    <link rel="stylesheet" href="css/aiAgentStyles/aiAgentWorktypes.css" />
+    <link rel="stylesheet" href="css/aiAgentStyles/aiAgentFullscreenChat.css" />
+    <link rel="stylesheet" href="css/aiAgentStyles/aiAgentChatHistory.css" />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      #aiPageContainer {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background-color: #0e1013;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+      }
+
+      #aiPageContent {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 2.22vh;
+        gap: 1.332vh;
+        box-sizing: border-box;
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+      }
+
+      #aiPageTopBlocks {
+        display: flex;
+        flex-direction: row;
+        gap: 1.332vh;
+        flex-shrink: 0;
+        height: auto;
+      }
+
+      .hidden {
+        display: none !important;
+        visibility: hidden !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="aiPageContainer">
+      <div id="aiPageContent">
+        <!-- Верхние блоки навигации -->
+        <div id="aiPageTopBlocks">
+          <!-- Блок 1: Застройщик / Подрядчик -->
+          <div id="aiBlock1Content" class="ai-header-block"></div>
+          
+          <!-- Блок 2: AI МЕТОДЫ: Стройагент / GIGA планерка / анализ ресурсов / AI прогноз -->
+          <div id="aiBlock2Content" class="ai-header-block"></div>
+        </div>
+
+        <!-- AI AGENT -->
+        <div id="aiAgentContainer" class="ai-agent-container"></div>
+        <div id="aiFullscreenChat"></div>
+        <div id="aiAgentChatHistory"></div>
+
+        <!-- GIGA ПЛАНЕРКА -->
+        <div id="aiGigaContainer"></div>
+
+        <!-- АНАЛИЗ РЕСУРСОВ -->
+        <div id="aiResourcesContainer"></div>
+
+        <!-- AI ПРОГНОЗ -->
+        <div id="aiForecastContainer"></div>
+      </div>
+    </div>
+
+    <!-- aiPage Modules -->
+    <script src="app/aiPage/aiPageCore.js"></script>
+    <script src="app/aiPage/aiPageData.js"></script>
+    <script src="app/aiPage/aiPageStyles.js"></script>
+    <script src="app/aiPage/aiPageCards.js"></script>
+    <script src="app/aiPage/aiPageRender.js"></script>
+    <script src="app/aiPage/aiAgent/aiAgentRender.js"></script>
+    <script src="app/aiPage/aiForecast/aiForecastRender.js"></script>
+    <script src="app/aiPage/aiGiga/aiGigaRender.js"></script>
+    <script src="app/aiPage/aiResources/aiResourcesRender.js"></script>
+    <script src="app/aiPage/aiAgent/aiAgentFullscreenChat.js"></script>
+    <script src="app/aiPage/aiPageCustomers.js"></script>
+    <script src="app/aiPage/aiAgent/aiAgentDropdownWorks.js"></script>
+    <script src="app/aiPage/aiAgent/aiAgentChatHistory.js"></script>
+
+    <!-- Инициализация -->
+    <script src="init.js"></script>
+  </body>
+</html>
+
