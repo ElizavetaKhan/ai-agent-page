@@ -1,33 +1,35 @@
 // type 1 - newChat, type 2 - with messages
 componentAiAgentChat.openChat = function (type) {
-    const shouldRenderMessages = type === 2;
+  const shouldRenderMessages = type === 2
 
-    if (shouldRenderMessages) {
-        // вывод тулкита
-        if (!componentAiAgentChat.selectedWorkType) {
-            var toolkitContainer = document.getElementById("toolkit-container")
-            toolkitContainer.classList.add("active")
-            return
-        }
-        var input = document.getElementById("aiChatInput");
-        if (input.value === "") { return }
+  if (shouldRenderMessages) {
+    // вывод тулкита
+    if (!componentAiAgentChat.selectedWorkType) {
+      var toolkitContainer = document.getElementById("toolkit-container")
+      toolkitContainer.classList.add("active")
+      return
     }
+    var input = document.getElementById("aiChatInput")
+    if (input.value === "") {
+      return
+    }
+  }
 
-    var content = document.getElementById("aiFullscreenChat")
+  var content = document.getElementById("aiFullscreenChat")
 
-    content.classList.add("open");
+  content.classList.add("open")
 
-    if (content) {
-        content.innerHTML = `
+  if (content) {
+    content.innerHTML = `
             <div class="ai-agent-chat-container fullscreen">
-                <svg class="ai-agent-close-fullscreen" id="close-fullscreen-chat" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="ai-agent-close-fullscreen" id="close-fullscreen-chat" width="2.664vh" height="2.664vh" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18 6L6 18" stroke="#D0D0D1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M6 6L18 18" stroke="#D0D0D1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
 
                 <!-- ИКОНКА И ИМЯ -->
                 <div class="ai-agent-icon-and-name">
-                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="8.88vh" height="8.88vh" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M40 25.499V32.999" stroke="#5FAFFF" stroke-width="6.75" stroke-linecap="square"/>
                         <path d="M40 7.72461C44.0179 7.72461 47.2754 10.9821 47.2754 15C47.2754 19.0179 44.0179 22.2754 40 22.2754C35.9821 22.2754 32.7246 19.0179 32.7246 15C32.7246 10.9821 35.9821 7.72461 40 7.72461Z" fill="#2785E5" stroke="#2785E5" stroke-width="5.45"/>
                         <path d="M57.5 35H22.5C12.835 35 5 42.835 5 52.5C5 62.165 12.835 70 22.5 70H57.5C67.165 70 75 62.165 75 52.5C75 42.835 67.165 35 57.5 35Z" fill="#5FAFFF" stroke="#2785E5" stroke-width="6.75"/>
@@ -65,7 +67,7 @@ componentAiAgentChat.openChat = function (type) {
                         type="text" 
                         placeholder="Сообщение" 
                         />
-                        <svg class="ai-agent-send-button" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="ai-agent-send-button" width="4.44vh" height="4.44vh" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="40" height="40" rx="8" fill="#31404F"/>
                             <path d="M26.7656 18.033C28.4566 18.8786 29.3026 19.3012 29.3026 19.9707C29.3026 20.6402 28.4566 21.0628 26.7656 21.9083L18.0704 26.2559C15.6668 27.4577 14.4648 28.0586 13.9127 27.5065C13.3609 26.9543 13.9623 25.7527 15.1639 23.3495L16.3116 21.0527L22.9814 21.0534C23.5794 21.0532 24.0639 20.5686 24.0642 19.9707C24.064 19.3726 23.5789 18.8872 22.9807 18.8872L16.3109 18.8865L15.1639 16.5919C13.9623 14.1887 13.3609 12.9871 13.9127 12.4349C14.4648 11.8828 15.6668 12.4837 18.0704 13.6854L26.7656 18.033Z" fill="#5FAFFF"/>
                         </svg>
@@ -73,39 +75,39 @@ componentAiAgentChat.openChat = function (type) {
                 </div>
             </div>
         `
-    }
+  }
 
-    var selectedWorkTypeContainer = document.getElementById("selected-work-type")
+  var selectedWorkTypeContainer = document.getElementById("selected-work-type")
 
-    if (!componentAiAgentChat.selectedWorkType) {
-        selectedWorkTypeContainer.innerHTML = "Выберите вид работ"
-    } else {
-        selectedWorkTypeContainer.innerHTML = componentAiAgentChat.selectedWorkType
-    }
-    
-    if (shouldRenderMessages) {
-        componentAiAgentChat.sendMessage(input.value);
-    } else {
-        var messagesContainer = document.getElementById("ai-agent-messages")
-        messagesContainer.classList.add("off")
-    }
+  if (!componentAiAgentChat.selectedWorkType) {
+    selectedWorkTypeContainer.innerHTML = "Выберите вид работ"
+  } else {
+    selectedWorkTypeContainer.innerHTML = componentAiAgentChat.selectedWorkType
+  }
 
-    componentAiAgentChat.renderChatHistory();
+  if (shouldRenderMessages) {
+    componentAiAgentChat.sendMessage(input.value)
+  } else {
+    var messagesContainer = document.getElementById("ai-agent-messages")
+    messagesContainer.classList.add("off")
+  }
 
-    var closeButton = document.getElementById("close-fullscreen-chat")
-    if (closeButton) {
-        closeButton.addEventListener("click", () => {
-            componentAiAgentChat.closeChat()
-        });
-    }
+  componentAiAgentChat.renderChatHistory()
+
+  var closeButton = document.getElementById("close-fullscreen-chat")
+  if (closeButton) {
+    closeButton.addEventListener("click", () => {
+      componentAiAgentChat.closeChat()
+    })
+  }
 }
 
 componentAiAgentChat.closeChat = function () {
-    var content = document.getElementById("aiFullscreenChat")
-    content.classList.remove("open")
+  var content = document.getElementById("aiFullscreenChat")
+  content.classList.remove("open")
 
-    // сброс выбранного вида работ
-    componentAiAgentChat.selectedWorkType = null;
-    var choosenWorkType = document.getElementById("choosen-work-type")
-    choosenWorkType.innerHTML = "Выберите вид работ"
+  // сброс выбранного вида работ
+  componentAiAgentChat.selectedWorkType = null
+  var choosenWorkType = document.getElementById("choosen-work-type")
+  choosenWorkType.innerHTML = "Выберите вид работ"
 }

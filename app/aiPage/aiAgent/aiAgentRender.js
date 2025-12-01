@@ -8,7 +8,7 @@ componentAiAgentChat.render = function () {
           <!-- ИКОНКА И ИМЯ -->
           <div class="ai-agent-icon-and-name">
             <div class="ai-block">
-              <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="8.88vh" height="8.88vh" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M40 25.499V32.999" stroke="#5FAFFF" stroke-width="6.75" stroke-linecap="square"/>
                 <path d="M40 7.72461C44.0179 7.72461 47.2754 10.9821 47.2754 15C47.2754 19.0179 44.0179 22.2754 40 22.2754C35.9821 22.2754 32.7246 19.0179 32.7246 15C32.7246 10.9821 35.9821 7.72461 40 7.72461Z" fill="#2785E5" stroke="#2785E5" stroke-width="5.45"/>
                 <path d="M57.5 35H22.5C12.835 35 5 42.835 5 52.5C5 62.165 12.835 70 22.5 70H57.5C67.165 70 75 62.165 75 52.5C75 42.835 67.165 35 57.5 35Z" fill="#5FAFFF" stroke="#2785E5" stroke-width="6.75"/>
@@ -19,7 +19,7 @@ componentAiAgentChat.render = function () {
               </svg>
               <!-- ТУЛКИТ -->
               <div class="ai-agent-toolkit-container" id="toolkit-container">
-                <svg width="222" height="78" viewBox="0 0 222 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="24.642vh" height="8.658vh" viewBox="0 0 222 78" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9.66406 20.056C9.66406 9.20211 18.4628 0.40332 29.3167 0.40332V28.8479H9.66406V20.056Z" fill="#31404F" stroke="#31404F" stroke-width="0.805851"/>
                   <rect x="9.66406" y="28.8477" width="19.6526" height="20.1217" fill="#31404F" stroke="#31404F" stroke-width="0.805851"/>
                   <path d="M29.3169 48.9697V77.4141C24.5572 77.4141 20.1931 75.7216 16.7925 72.9062C13.4001 75.1663 7.96139 77.316 1.38916 76.1211C3.19942 75.3452 10.1809 70.6908 9.92236 61.3818C9.95309 61.4241 9.98772 61.4635 10.021 61.5039C9.78742 60.2924 9.66357 59.0414 9.66357 57.7617V48.9697H29.3169Z" fill="#31404F"/>
@@ -47,7 +47,7 @@ componentAiAgentChat.render = function () {
 
           <div class="ai-agent-select-work" id="choose-work-type">
             <span id="choosen-work-type"></span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="2.664vh" height="2.664vh" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M11.8079 14.7695L8.09346 10.3121C7.65924 9.79109 8.02976 9 8.70803 9L15.292 9C15.9702 9 16.3408 9.79108 15.9065 10.3121L12.1921 14.7695C12.0921 14.8895 11.9079 14.8895 11.8079 14.7695Z" fill="#5FAFFF"/>
             </svg>
           </div>
@@ -61,7 +61,7 @@ componentAiAgentChat.render = function () {
                 placeholder="Поиск"
                 autoailete="off"
               />
-              <svg class="worktype-dropdown-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="worktype-dropdown-icon" width="2.664vh" height="2.664vh" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_5159_9318)">
                 <circle cx="11" cy="11" r="7" stroke="#D0D0D1" stroke-width="2"/>
                 <path d="M11 8C10.606 8 10.2159 8.0776 9.85195 8.22836C9.48797 8.37913 9.15726 8.6001 8.87868 8.87868C8.6001 9.15726 8.37913 9.48797 8.22836 9.85195C8.0776 10.2159 8 10.606 8 11" stroke="#D0D0D1" stroke-width="2" stroke-linecap="round"/>
@@ -87,7 +87,7 @@ componentAiAgentChat.render = function () {
               id="aiChatInput"
               placeholder="Приветствую, чем могу быть полезен?" 
             />
-            <svg class="ai-agent-send-button" id="open-fullscreen-chat" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="ai-agent-send-button" id="open-fullscreen-chat" width="4.44vh" height="4.44vh" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="40" height="40" rx="8" fill="#31404F"/>
               <path d="M26.7656 18.033C28.4566 18.8786 29.3026 19.3012 29.3026 19.9707C29.3026 20.6402 28.4566 21.0628 26.7656 21.9083L18.0704 26.2559C15.6668 27.4577 14.4648 28.0586 13.9127 27.5065C13.3609 26.9543 13.9623 25.7527 15.1639 23.3495L16.3116 21.0527L22.9814 21.0534C23.5794 21.0532 24.0639 20.5686 24.0642 19.9707C24.064 19.3726 23.5789 18.8872 22.9807 18.8872L16.3109 18.8865L15.1639 16.5919C13.9623 14.1887 13.3609 12.9871 13.9127 12.4349C14.4648 11.8828 15.6668 12.4837 18.0704 13.6854L26.7656 18.033Z" fill="#5FAFFF"/>
             </svg>
@@ -95,11 +95,11 @@ componentAiAgentChat.render = function () {
 
           <!-- КНОПКИ ИСТОРИИ И НОВОГО ЧАТА -->
           <div class="bottom-buttons">
-            <svg id="open-history-btn" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg id="open-history-btn" width="3.552vh" height="3.552vh" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="32" height="32" rx="6" fill="#31404F"/>
               <path d="M13 8V24M8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8H22C22.5304 8 23.0391 8.21071 23.4142 8.58579C23.7893 8.96086 24 9.46957 24 10V22C24 22.5304 23.7893 23.0391 23.4142 23.4142C23.0391 23.7893 22.5304 24 22 24H10C9.46957 24 8.96086 23.7893 8.58579 23.4142C8.21071 23.0391 8 22.5304 8 22V10Z" stroke="#5FAFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <svg id="open-new-chat-bottom-btn" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg id="open-new-chat-bottom-btn" width="3.552vh" height="3.552vh" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="32" height="32" rx="6" fill="#31404F"/>
               <circle cx="16" cy="16" r="9" stroke="#5FAFFF" stroke-width="2"/>
               <path d="M16 19L16 13" stroke="#5FAFFF" stroke-width="2" stroke-linecap="square"/>
@@ -112,14 +112,14 @@ componentAiAgentChat.render = function () {
   var openButton = document.getElementById("open-fullscreen-chat")
   if (openButton) {
     openButton.addEventListener("click", () => {
-      componentAiAgentChat.openChat(2);
-    });
+      componentAiAgentChat.openChat(2)
+    })
   }
   var openNewChatBtn = document.getElementById("open-new-chat-bottom-btn")
   if (openNewChatBtn) {
     openNewChatBtn.addEventListener("click", () => {
-      componentAiAgentChat.openChat(1);
-    });
+      componentAiAgentChat.openChat(1)
+    })
   }
 
   componentAiAgentChat.initWorkTypes()
