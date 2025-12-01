@@ -85,7 +85,7 @@
     flex-direction: column;
     gap: 1.332vh;
     width: 100%;
-    max-width: 88.8vh;
+    max-width: 120vh;
 }
 
 .ai-agent-messages.off {
