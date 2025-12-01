@@ -67,6 +67,11 @@ aiPage.initCustomerDropdown = function () {
   }
 
   card.addEventListener("click", function (e) {
+    // не открываем dropdown, если клик был по чекбоксу
+    if (e.target.closest(".custom-checkbox")) {
+      return
+    }
+
     e.stopPropagation()
     dropdown.classList.add("active")
 
