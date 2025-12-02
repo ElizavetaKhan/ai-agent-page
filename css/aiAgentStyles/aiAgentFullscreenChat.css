@@ -18,10 +18,6 @@
     height: 100%;
 }
 
-.ai-agent-select-work.fullscreen {
-    cursor: unset;
-}
-
 #aiFullscreenChat.open {
     transform: translateY(0%);
     /* выезжает наверх */

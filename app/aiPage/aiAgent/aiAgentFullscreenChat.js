@@ -68,8 +68,11 @@ componentAiAgentChat.renderFullscreenChat = function () {
             </div>
 
             <div class="ai-agent-fullscreen-input">
-                <div class="ai-agent-select-work fullscreen">
+                <div class="ai-agent-select-work" id="choose-work-type-fullscreen">
                     <span id="selected-work-type"></span>
+                    <svg width="2.664vh" height="2.664vh" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.8079 14.7695L8.09346 10.3121C7.65924 9.79109 8.02976 9 8.70803 9L15.292 9C15.9702 9 16.3408 9.79108 15.9065 10.3121L12.1921 14.7695C12.0921 14.8895 11.9079 14.8895 11.8079 14.7695Z" fill="#5FAFFF"/>
+                    </svg>
                 </div>
 
                 <div class="ai-agent-chat-input fullscreen">
@@ -166,6 +169,20 @@ componentAiAgentChat.openChat = function (type) {
         content.innerHTML = componentAiAgentChat.renderFullscreenChat()
     }
     componentAiAgentChat.updateSelectedWorkTypeLabel()
+
+    var fullscreenWorkTypeHandle = document.getElementById("choose-work-type-fullscreen")
+    var workTypeDropdown = document.getElementById("aiWorkTypeDropdown")
+    var workTypeSearch = document.getElementById("aiWorkTypeSearch")
+
+    if (fullscreenWorkTypeHandle && workTypeDropdown) {
+        fullscreenWorkTypeHandle.addEventListener("click", function (e) {
+            e.stopPropagation()
+            workTypeDropdown.classList.toggle("active")
+            if (workTypeDropdown.classList.contains("active") && workTypeSearch) {
+                workTypeSearch.focus()
+            }
+        })
+    }
 
     var loader = document.getElementById("ai-agent-loader")
     if (loader) {

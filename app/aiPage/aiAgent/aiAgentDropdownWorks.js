@@ -59,6 +59,11 @@ componentAiAgentChat.initWorkTypes = function () {
 
                     var toolkit = document.getElementById('toolkit-container')
                     toolkit.classList.remove('active')
+
+                    var fullscreenLabel = document.getElementById("selected-work-type")
+                    if (fullscreenLabel) {
+                        fullscreenLabel.innerHTML = item;
+                    }
                 });
                 listContainer.appendChild(itemEl);
             });
