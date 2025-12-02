@@ -1,4 +1,11 @@
 /* === СТИЛИ ДЛЯ DROPDOWN ВЫБОРА ТИПА РАБОТЫ === */
+.ai-agent-worktype-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .ai-agent-select-work {
     display: flex;
     align-items: center;
@@ -22,7 +29,7 @@
 }
 
 .worktype-dropdown {
-  position: fixed;
+  position: absolute;
   z-index: 10000;
   display: none;
   flex-direction: column;
@@ -34,10 +41,9 @@
   box-shadow: 0.444vh 0 0.444vh 0 rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   width: 66.055vh;
-  top: 0;
-  left: 0;
-  transform: translate(-2vh, -102.5%);
-  transform-origin: bottom;
+  bottom: calc(100% - 4.44vh);
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .worktype-dropdown.active {

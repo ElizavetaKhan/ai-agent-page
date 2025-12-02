@@ -45,38 +45,40 @@ componentAiAgentChat.render = function () {
             
           </div>
 
-          <div class="ai-agent-select-work" id="choose-work-type">
-            <span id="choosen-work-type"></span>
-            <svg width="2.664vh" height="2.664vh" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M11.8079 14.7695L8.09346 10.3121C7.65924 9.79109 8.02976 9 8.70803 9L15.292 9C15.9702 9 16.3408 9.79108 15.9065 10.3121L12.1921 14.7695C12.0921 14.8895 11.9079 14.8895 11.8079 14.7695Z" fill="#5FAFFF"/>
-            </svg>
-          </div>
-
-          <!-- DROPDOWN ДЛЯ ВЫБОРА ВИДА РАБОТ -->
-          <div class="worktype-dropdown" id="aiWorkTypeDropdown">
-            <div class="worktype-dropdown-input">
-              <input 
-                type="text" 
-                id="aiWorkTypeSearch" 
-                placeholder="Поиск"
-                autoailete="off"
-              />
-              <svg class="worktype-dropdown-icon" width="2.664vh" height="2.664vh" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_5159_9318)">
-                <circle cx="11" cy="11" r="7" stroke="#D0D0D1" stroke-width="2"/>
-                <path d="M11 8C10.606 8 10.2159 8.0776 9.85195 8.22836C9.48797 8.37913 9.15726 8.6001 8.87868 8.87868C8.6001 9.15726 8.37913 9.48797 8.22836 9.85195C8.0776 10.2159 8 10.606 8 11" stroke="#D0D0D1" stroke-width="2" stroke-linecap="round"/>
-                <path d="M20 20L17 17" stroke="#D0D0D1" stroke-width="2" stroke-linecap="round"/>
-                </g>
-                <defs>
-                <clipPath id="clip0_5159_9318">
-                <rect width="24" height="24" fill="white"/>
-                </clipPath>
-                </defs>
+          <div class="ai-agent-worktype-wrapper">
+            <div class="ai-agent-select-work" id="choose-work-type">
+              <span id="choosen-work-type"></span>
+              <svg width="2.664vh" height="2.664vh" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.8079 14.7695L8.09346 10.3121C7.65924 9.79109 8.02976 9 8.70803 9L15.292 9C15.9702 9 16.3408 9.79108 15.9065 10.3121L12.1921 14.7695C12.0921 14.8895 11.9079 14.8895 11.8079 14.7695Z" fill="#5FAFFF"/>
               </svg>
-
             </div>
-            <div class="worktype-dropdown-list" id="aiWorkTypeDropdownList">
-              <!-- Список застройщиков будет добавлен динамически -->
+
+            <!-- DROPDOWN ДЛЯ ВЫБОРА ВИДА РАБОТ -->
+            <div class="worktype-dropdown" id="aiWorkTypeDropdown">
+              <div class="worktype-dropdown-input">
+                <input 
+                  type="text" 
+                  id="aiWorkTypeSearch" 
+                  placeholder="Поиск"
+                  autoailete="off"
+                />
+                <svg class="worktype-dropdown-icon" width="2.664vh" height="2.664vh" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_5159_9318)">
+                  <circle cx="11" cy="11" r="7" stroke="#D0D0D1" stroke-width="2"/>
+                  <path d="M11 8C10.606 8 10.2159 8.0776 9.85195 8.22836C9.48797 8.37913 9.15726 8.6001 8.87868 8.87868C8.6001 9.15726 8.37913 9.48797 8.22836 9.85195C8.0776 10.2159 8 10.606 8 11" stroke="#D0D0D1" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M20 20L17 17" stroke="#D0D0D1" stroke-width="2" stroke-linecap="round"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_5159_9318">
+                  <rect width="24" height="24" fill="white"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+
+              </div>
+              <div class="worktype-dropdown-list" id="aiWorkTypeDropdownList">
+                <!-- Список застройщиков будет добавлен динамически -->
+              </div>
             </div>
           </div>
 
@@ -122,6 +124,6 @@ componentAiAgentChat.render = function () {
     })
   }
 
-  componentAiAgentChat.initWorkTypes()
+  componentAiAgentChat.initWorkTypes(0)
   componentAiAgentChat.renderChatHistory()
 }

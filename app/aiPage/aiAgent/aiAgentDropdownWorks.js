@@ -21,27 +21,37 @@ componentAiAgentChat.workTypes = {
     ]
 };
 
-componentAiAgentChat.initWorkTypes = function () {
-    var dropdown = document.getElementById("aiWorkTypeDropdown")
-    var listContainer = document.getElementById("aiWorkTypeDropdownList")
-    var searchInput = document.getElementById("aiWorkTypeSearch")
-    var primaryHandle = document.getElementById("choose-work-type")
-    var primaryLabel = document.getElementById("choosen-work-type")
+// type: 0 - обычный чат, 1 - fullscreen
+componentAiAgentChat.initWorkTypes = function (type) {
+    var isFullscreen = type === 1
 
-    if (!primaryLabel) { return }
-    primaryLabel.innerHTML = "Выберите вид работ"
+    var dropdown = document.getElementById(
+        isFullscreen ? "aiWorkTypeDropdownFullscreen" : "aiWorkTypeDropdown"
+    )
+    var listContainer = document.getElementById(
+        isFullscreen ? "aiWorkTypeDropdownListFullscreen" : "aiWorkTypeDropdownList"
+    )
+    var searchInput = document.getElementById(
+        isFullscreen ? "aiWorkTypeSearchFullscreen" : "aiWorkTypeSearch"
+    )
+    var handle = document.getElementById(
+        isFullscreen ? "choose-work-type-fullscreen" : "choose-work-type"
+    )
+    var label = document.getElementById(
+        isFullscreen ? "selected-work-type" : "choosen-work-type"
+    )
 
-    if (!dropdown || !listContainer || !primaryHandle) { return }
+    if (!dropdown || !listContainer || !handle) { return }
 
-    var activeLabel = primaryLabel
-
-    function updateDropdownPosition(triggerEl) {
-        if (!triggerEl) { return }
-        var rect = triggerEl.getBoundingClientRect()
-        dropdown.style.left = ((rect.left + window.scrollX) * 0.111) + "vh"
-        dropdown.style.top = ((rect.bottom + window.scrollY) * 0.111) + "vh"
-        dropdown.style.width = (rect.width * 0.111) + "vh"
+    // для основного чата по умолчанию показываем подсказку
+    if (!isFullscreen && label) {
+        label.innerHTML = "Выберите вид работ"
     }
+
+    if (handle.dataset.worktypeInited === "true") {
+        return
+    }
+    handle.dataset.worktypeInited = "true"
 
     function closeDropdown() {
         dropdown.classList.remove("active")
@@ -69,11 +79,18 @@ componentAiAgentChat.initWorkTypes = function () {
                 itemEl.textContent = item
                 itemEl.addEventListener("click", function () {
                     componentAiAgentChat.selectedWorkType = item
-                    if (primaryLabel) {
-                        primaryLabel.innerHTML = item
+
+                    // обновляем текущий label
+                    if (label) {
+                        label.innerHTML = item
                     }
+
+                    var baseLabel = document.getElementById("choosen-work-type")
                     var fullscreenLabel = document.getElementById("selected-work-type")
-                    if (fullscreenLabel) {
+                    if (baseLabel && baseLabel !== label) {
+                        baseLabel.innerHTML = item
+                    }
+                    if (fullscreenLabel && fullscreenLabel !== label) {
                         fullscreenLabel.innerHTML = item
                     }
 
@@ -89,24 +106,22 @@ componentAiAgentChat.initWorkTypes = function () {
         })
     }
 
-    function toggleDropdown(triggerEl, labelEl) {
-        if (dropdown.classList.contains("active") && activeLabel === labelEl) {
+    function toggleDropdown() {
+        if (dropdown.classList.contains("active")) {
             closeDropdown()
             return
         }
-        activeLabel = labelEl || primaryLabel
         dropdown.classList.add("active")
         renderList("")
-        updateDropdownPosition(triggerEl)
         if (searchInput) {
             searchInput.value = ""
             searchInput.focus()
         }
     }
 
-    primaryHandle.addEventListener("click", function (e) {
+    handle.addEventListener("click", function (e) {
         e.stopPropagation()
-        toggleDropdown(primaryHandle, primaryLabel)
+        toggleDropdown()
     })
 
     if (searchInput) {
@@ -116,24 +131,8 @@ componentAiAgentChat.initWorkTypes = function () {
     }
 
     document.addEventListener("click", function (e) {
-        if (!dropdown.contains(e.target)) {
+        if (!dropdown.contains(e.target) && !handle.contains(e.target)) {
             closeDropdown()
         }
-    })
-
-    componentAiAgentChat.toggleWorkTypeDropdown = toggleDropdown
-    componentAiAgentChat.closeWorkTypeDropdown = closeDropdown
-};
-
-componentAiAgentChat.attachFullscreenWorkTypeHandle = function () {
-    var handle = document.getElementById("choose-work-type-fullscreen")
-    if (!handle || handle.dataset.dropdownAttached === "true" || typeof componentAiAgentChat.toggleWorkTypeDropdown !== "function") {
-        return
-    }
-    handle.dataset.dropdownAttached = "true"
-    handle.addEventListener("click", function (e) {
-        e.stopPropagation()
-        var fullscreenLabel = document.getElementById("selected-work-type")
-        componentAiAgentChat.toggleWorkTypeDropdown(handle, fullscreenLabel)
     })
 }
