@@ -48,11 +48,6 @@ componentAiAgentChat.initWorkTypes = function (type) {
         label.innerHTML = "Выберите вид работ"
     }
 
-    if (handle.dataset.worktypeInited === "true") {
-        return
-    }
-    handle.dataset.worktypeInited = "true"
-
     function closeDropdown() {
         dropdown.classList.remove("active")
     }
