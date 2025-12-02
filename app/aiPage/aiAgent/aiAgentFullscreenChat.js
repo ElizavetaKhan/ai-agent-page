@@ -68,11 +68,40 @@ componentAiAgentChat.renderFullscreenChat = function () {
             </div>
 
             <div class="ai-agent-fullscreen-input">
-                <div class="ai-agent-select-work" id="choose-work-type-fullscreen">
-                    <span id="selected-work-type"></span>
-                    <svg width="2.664vh" height="2.664vh" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11.8079 14.7695L8.09346 10.3121C7.65924 9.79109 8.02976 9 8.70803 9L15.292 9C15.9702 9 16.3408 9.79108 15.9065 10.3121L12.1921 14.7695C12.0921 14.8895 11.9079 14.8895 11.8079 14.7695Z" fill="#5FAFFF"/>
-                    </svg>
+                <div class="ai-agent-worktype-wrapper">
+                    <div class="ai-agent-select-work" id="choose-work-type-fullscreen">
+                        <span id="selected-work-type"></span>
+                        <svg width="2.664vh" height="2.664vh" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.8079 14.7695L8.09346 10.3121C7.65924 9.79109 8.02976 9 8.70803 9L15.292 9C15.9702 9 16.3408 9.79108 15.9065 10.3121L12.1921 14.7695C12.0921 14.8895 11.9079 14.8895 11.8079 14.7695Z" fill="#5FAFFF"/>
+                        </svg>
+                    </div>
+
+                    <!-- DROPDOWN ДЛЯ ВЫБОРА ВИДА РАБОТ -->
+                    <div class="worktype-dropdown fullscreen" id="aiWorkTypeDropdownFullscreen">
+                        <div class="worktype-dropdown-input">
+                            <input 
+                                type="text" 
+                                id="aiWorkTypeSearchFullscreen" 
+                                placeholder="Поиск"
+                                autoailete="off"
+                                />
+                            <svg class="worktype-dropdown-icon" width="2.664vh" height="2.664vh" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_5159_9318)">
+                                <circle cx="11" cy="11" r="7" stroke="#D0D0D1" stroke-width="2"/>
+                                <path d="M11 8C10.606 8 10.2159 8.0776 9.85195 8.22836C9.48797 8.37913 9.15726 8.6001 8.87868 8.87868C8.6001 9.15726 8.37913 9.48797 8.22836 9.85195C8.0776 10.2159 8 10.606 8 11" stroke="#D0D0D1" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M20 20L17 17" stroke="#D0D0D1" stroke-width="2" stroke-linecap="round"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_5159_9318">
+                                <rect width="24" height="24" fill="white"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="worktype-dropdown-list" id="aiWorkTypeDropdownListFullscreen">
+                            <!-- Список застройщиков будет добавлен динамически -->
+                        </div>
+                    </div>
                 </div>
 
                 <div class="ai-agent-chat-input fullscreen">
@@ -146,33 +175,51 @@ componentAiAgentChat.attachCloseHandler = function () {
 
 // type 1 - newChat, type 2 - with messages
 componentAiAgentChat.openChat = function (type) {
-  const shouldRenderMessages = type === 2
+    const shouldRenderMessages = type === 2
 
-  if (shouldRenderMessages) {
-    // вывод тулкита
-    if (!componentAiAgentChat.selectedWorkType) {
-      var toolkitContainer = document.getElementById("toolkit-container")
-      toolkitContainer.classList.add("active")
-      return
+    if (shouldRenderMessages) {
+        // вывод тулкита
+        if (!componentAiAgentChat.selectedWorkType) {
+            var toolkitContainer = document.getElementById("toolkit-container")
+            toolkitContainer.classList.add("active")
+            return
+        }
+        var input = document.getElementById("aiChatInput")
+        if (input.value === "") {
+            return
+        }
     }
-    var input = document.getElementById("aiChatInput")
-    if (input.value === "") {
-      return
-    }
-  }
 
-  var content = document.getElementById("aiFullscreenChat")
+    var content = document.getElementById("aiFullscreenChat")
 
-  content.classList.add("open")
+    content.classList.add("open")
 
     if (content) {
         content.innerHTML = componentAiAgentChat.renderFullscreenChat()
     }
+    
+    if (typeof componentAiAgentChat.initWorkTypes === "function") {
+        componentAiAgentChat.initWorkTypes(1)
+    }
+    
     componentAiAgentChat.updateSelectedWorkTypeLabel()
-    if (typeof componentAiAgentChat.attachFullscreenWorkTypeHandle === "function") {
-        componentAiAgentChat.attachFullscreenWorkTypeHandle()
+    
+    if (!shouldRenderMessages) {
+        var fullscreenLabel = document.getElementById("selected-work-type")
+        if (fullscreenLabel) {
+            fullscreenLabel.innerHTML = "Выберите вид работ"
+        }
     }
 
+    // если новый чат сбрасываем поле selected-work-type
+    if (!shouldRenderMessages) {
+        var fullscreenLabel = document.getElementById("selected-work-type")
+        if (fullscreenLabel) {
+            fullscreenLabel.innerHTML = "Выберите вид работ"
+        }
+    }
+
+    // загрузка сообщений
     var loader = document.getElementById("ai-agent-loader")
     if (loader) {
         var loaderIcons = loader.querySelectorAll(".ai-agent-loader__icon-wrapper")
@@ -198,11 +245,11 @@ componentAiAgentChat.openChat = function (type) {
 }
 
 componentAiAgentChat.closeChat = function () {
-  var content = document.getElementById("aiFullscreenChat")
-  content.classList.remove("open")
+    var content = document.getElementById("aiFullscreenChat")
+    content.classList.remove("open")
 
-  // сброс выбранного вида работ
-  componentAiAgentChat.selectedWorkType = null
-  var choosenWorkType = document.getElementById("choosen-work-type")
-  choosenWorkType.innerHTML = "Выберите вид работ"
+    // сброс выбранного вида работ
+    componentAiAgentChat.selectedWorkType = null
+    var choosenWorkType = document.getElementById("choosen-work-type")
+    choosenWorkType.innerHTML = "Выберите вид работ"
 }
