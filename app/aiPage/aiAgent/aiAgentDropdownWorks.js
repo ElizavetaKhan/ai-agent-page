@@ -21,10 +21,6 @@ componentAiAgentChat.workTypes = {
     ]
 };
 
-componentAiAgentChat.pxToVh = function (px) {
-    return (px * 0.111) + "vh"
-}
-
 componentAiAgentChat.initWorkTypes = function () {
     var dropdown = document.getElementById("aiWorkTypeDropdown")
     var listContainer = document.getElementById("aiWorkTypeDropdownList")
@@ -42,9 +38,9 @@ componentAiAgentChat.initWorkTypes = function () {
     function updateDropdownPosition(triggerEl) {
         if (!triggerEl) { return }
         var rect = triggerEl.getBoundingClientRect()
-        dropdown.style.left = componentAiAgentChat.pxToVh(rect.left + window.scrollX)
-        dropdown.style.top = componentAiAgentChat.pxToVh(rect.bottom + window.scrollY)
-        dropdown.style.width = componentAiAgentChat.pxToVh(rect.width)
+        dropdown.style.left = ((rect.left + window.scrollX) * 0.111) + "vh"
+        dropdown.style.top = ((rect.bottom + window.scrollY) * 0.111) + "vh"
+        dropdown.style.width = (rect.width * 0.111) + "vh"
     }
 
     function closeDropdown() {
