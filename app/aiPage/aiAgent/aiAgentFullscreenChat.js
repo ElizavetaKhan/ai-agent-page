@@ -169,19 +169,8 @@ componentAiAgentChat.openChat = function (type) {
         content.innerHTML = componentAiAgentChat.renderFullscreenChat()
     }
     componentAiAgentChat.updateSelectedWorkTypeLabel()
-
-    var fullscreenWorkTypeHandle = document.getElementById("choose-work-type-fullscreen")
-    var workTypeDropdown = document.getElementById("aiWorkTypeDropdown")
-    var workTypeSearch = document.getElementById("aiWorkTypeSearch")
-
-    if (fullscreenWorkTypeHandle && workTypeDropdown) {
-        fullscreenWorkTypeHandle.addEventListener("click", function (e) {
-            e.stopPropagation()
-            workTypeDropdown.classList.toggle("active")
-            if (workTypeDropdown.classList.contains("active") && workTypeSearch) {
-                workTypeSearch.focus()
-            }
-        })
+    if (typeof componentAiAgentChat.attachFullscreenWorkTypeHandle === "function") {
+        componentAiAgentChat.attachFullscreenWorkTypeHandle()
     }
 
     var loader = document.getElementById("ai-agent-loader")
